@@ -1,0 +1,57 @@
+<%- include('../includes/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/product.css">
+    <style>
+    input[type=text]{
+        width:20%;
+    }
+    input[type=number]{
+        width:20%;
+    }
+
+    textarea{
+        margin-top: 2%;
+
+        width:300px;
+        height: 150px;
+    }
+    #lab{
+        top: -10%;
+    }
+    
+    </style>
+</head>
+<body>
+
+        <%- include('../includes/navigation.ejs') %>
+    
+        <form class="product-form" action="/admin/add-product" method="POST">
+        <div class="form-group">
+
+            <div class="form-controls">
+                <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" id="title">
+
+            </div>
+
+            <div class="form-controls">
+                    <label for="image">Image URL</label>
+                        <input type="text" class="form-control" name="imageUrl" id="ImageUrl">
+    
+                </div>
+                <div class="form-controls">
+                        <label for="price">Price</label>
+                            <input type="number" class="form-control" name="price" id="price" step="0.01">
+        
+                    </div>
+                    <div class="form-controls">
+                            <label for="description">Description</label>
+                                <textarea name="description" id="description" placeholder="Describe your item..." rows="5"></textarea>
+            
+                        </div>
+           
+            <button class="btn btn-default" type="submit"><% if (editing) { %>update Product<% } else { %>Add product<% } %></button>
+        </div> 
+        </form>
+
+    <%- include('../includes/end.ejs') %>
